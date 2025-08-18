@@ -13,7 +13,7 @@ import {
   Minimize2,
   Maximize2,
   Shield,
-  Bot,
+  Sparkles,
   User,
   Crown
 } from "lucide-react";
@@ -103,7 +103,7 @@ export function ChatWidget() {
             ? "bg-gradient-to-br from-purple-500 to-emerald-500 text-white" 
             : "bg-gray-200 text-gray-600"
         )}>
-          {isViolet ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
+          {isViolet ? <Sparkles className="w-4 h-4" /> : <User className="w-4 h-4" />}
         </div>
 
         {/* Message bubble */}
@@ -192,7 +192,7 @@ export function ChatWidget() {
             <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-royal-purple to-emerald-accent text-white rounded-t-2xl">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                  <Bot className="w-4 h-4" />
+                  <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="font-semibold flex items-center gap-2">
@@ -245,7 +245,7 @@ export function ChatWidget() {
                     {messages.length === 0 && !isLoading && (
                       <div className="flex items-center justify-center h-32 text-gray-500">
                         <div className="text-center">
-                          <Bot className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                          <Sparkles className="w-8 h-8 mx-auto mb-2 text-gray-400" />
                           <p className="text-sm">Start a conversation with Violet!</p>
                         </div>
                       </div>
