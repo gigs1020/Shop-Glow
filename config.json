@@ -1,0 +1,87 @@
+{
+  "mastermind": {
+    "philosophy": "Chess master approach - fewer moves, maximum strategic impact",
+    "principles": [
+      "Write once, use everywhere",
+      "Single source of truth",
+      "Psychological performance over technical metrics",
+      "Strategic file organization",
+      "Minimal surface area"
+    ]
+  },
+  "architecture": {
+    "core_files": {
+      "core.js": "Universal utilities, state management, components",
+      "master.css": "Complete styling system with strategic utilities", 
+      "index.html": "Single page application with templates",
+      "config.json": "All configuration centralized"
+    },
+    "integration": {
+      "github": {
+        "repository": "mastermind-shop-glow",
+        "sync_strategy": "automatic",
+        "deployment_branch": "main"
+      },
+      "replit": {
+        "automation": "CI/CD pipeline",
+        "environment": "development",
+        "build_command": "npm run build",
+        "start_command": "serve -s build"
+      }
+    }
+  },
+  "performance": {
+    "psychological_speed": {
+      "critical_css_inline": true,
+      "progressive_loading": true,
+      "skeleton_screens": true,
+      "strategic_animations": true
+    },
+    "technical_optimization": {
+      "file_compression": true,
+      "image_optimization": true,
+      "lazy_loading": true,
+      "preload_critical": true
+    }
+  },
+  "features": {
+    "core_functionality": [
+      "Product catalog with strategic curation",
+      "Partner management system",
+      "Shopping cart with psychological triggers",
+      "User authentication",
+      "Search and filters"
+    ],
+    "advanced_features": [
+      "AI-powered recommendations",
+      "Dynamic pricing",
+      "Flash sales with countdown psychology",
+      "Social proof integration",
+      "Progressive web app capabilities"
+    ]
+  },
+  "deployment": {
+    "github_pages": {
+      "enabled": true,
+      "custom_domain": "shopglow-mastermind.com",
+      "ssl": true
+    },
+    "cdn": {
+      "provider": "cloudflare",
+      "caching_strategy": "aggressive",
+      "edge_locations": "global"
+    }
+  },
+  "monitoring": {
+    "performance": {
+      "core_web_vitals": true,
+      "load_time_tracking": true,
+      "user_flow_analysis": true
+    },
+    "business": {
+      "conversion_tracking": true,
+      "user_behavior": true,
+      "a_b_testing": true
+    }
+  }
+}

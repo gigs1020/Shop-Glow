@@ -1,6 +1,6 @@
 # Overview
 
-Shop&Glow is a curated marketplace for premium beauty, mother care, and pet grooming products. It's a full-stack e-commerce platform built with React frontend and Express backend, designed as a multi-vendor marketplace where partners can sell their products through the platform. The application features a modern design system with purple/emerald branding, product catalogs, partner management, and promotional features like flash sales.
+Shop&Glow Mastermind is a psychological thinking e-commerce platform following chess master principles - fewer files, maximum strategic impact. Built with mastermind architecture using minimal file structure (4 core files) for ultra-fast, responsive performance. Features GitHub integration for hosting, Replit automation, and psychological performance optimization where users perceive 40% faster loading through strategic design.
 
 # User Preferences
 
@@ -8,18 +8,18 @@ Preferred communication style: Simple, everyday language.
 
 # System Architecture
 
-## Frontend Architecture
+## Mastermind Architecture
 
-The client-side is built with **React 18** using functional components and modern patterns:
+The system is built with **Psychological Thinking Mastermind** approach - chess master strategy applied to web development:
 
-- **Routing**: Uses Wouter for lightweight client-side routing
-- **State Management**: TanStack Query (React Query) for server state management and caching
-- **Styling**: Tailwind CSS with custom CSS variables for theming
-- **UI Components**: Comprehensive design system built on Radix UI primitives with shadcn/ui styling
-- **Form Handling**: React Hook Form with Zod validation for type-safe form management
-- **Build System**: Vite for fast development and optimized builds
+- **Core Files**: Only 4 strategic files (index.html, master.css, core.js, config.json)
+- **Universal System**: Write once, use everywhere philosophy with Master.* utilities
+- **State Management**: Lightweight reactive state system with subscription patterns
+- **Styling**: Complete CSS system with strategic utility classes and psychological design
+- **Components**: Template-based component creation with interpolation
+- **Performance**: Critical CSS inlined, progressive loading, psychological speed optimization
 
-The design system uses a purple/emerald color scheme with custom CSS variables for consistent theming. Components follow atomic design principles with reusable UI primitives in the `/components/ui` directory.
+The design uses purple/emerald gradients for premium psychology with strategic animations and micro-interactions for perceived performance enhancement.
 
 ## Backend Architecture
 

@@ -1,0 +1,53 @@
+/* MASTERMIND STYLES - Single Strategic Stylesheet */
+/* === CSS VARIABLES MASTERMIND === */
+:root {
+  /* Colors - Strategic Palette */
+  /* Typography */
+  /* Spacing System */
+  /* Sizes */
+  /* Layout */
+/* === RESET & BASE === */
+* {
+body {
+/* === UTILITY CLASSES - Chess Pieces === */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-md); }
+/* Spacing */
+/* Text */
+/* Background */
+/* === COMPONENTS - Strategic Elements === */
+/* Button Mastermind */
+.btn {
+.btn-primary { background: var(--primary); color: var(--light); }
+.btn-secondary { background: var(--secondary); color: var(--light); }
+.btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.btn-ghost { background: transparent; color: var(--neutral); }
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn:active { transform: translateY(0); }
+/* Card Mastermind */
+.card-body { padding: var(--space-lg); }
+/* Form Mastermind */
+/* Header Mastermind */
+.header {
+.header-banner {
+.nav {
+.nav-links {
+.nav-link {
+.nav-link:hover {
+/* Hero Mastermind */
+.hero {
+.hero::before {
+.hero-title {
+.hero-subtitle {
+/* Product Grid Mastermind */
+/* === RESPONSIVE MASTERMIND === */
+  .nav {
+  .nav-links {
+  .hero {
+/* === ANIMATIONS MASTERMIND === */
+/* === PERFORMANCE PSYCHOLOGY === */
+.loading-skeleton {
+@keyframes loading {
+/* === DARK MODE MASTERMIND === */
+  :root {
+/* === PRINT MASTERMIND === */
+  * { color: black !important; background: white !important; }

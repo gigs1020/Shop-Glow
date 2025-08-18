@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-08-18T00:43:13.977Z",
+  "totalFiles": 3,
+  "totalSize": 26326,
+  "recommendations": [
+    "• Use CSS custom properties for dynamic theming",
+    "• Implement intersection observer for lazy loading",
+    "• Preload critical resources in <head>",
+    "• Use font-display: swap for web fonts",
+    "• Implement skeleton screens for perceived performance",
+    "• Cache static assets with service worker",
+    "• Optimize images with WebP format",
+    "• Use CSS containment for layout performance"
+  ],
+  "performance": {
+    "criticalCSSGenerated": true,
+    "serviceWorkerReady": true,
+    "optimizationScore": 85
+  }
+}

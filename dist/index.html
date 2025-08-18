@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop&Glow - Premium Beauty Mastermind</title>
+  
+  <!-- MASTERMIND PERFORMANCE PSYCHOLOGY -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CRITICAL CSS - Inline for psychological speed -->
+  <style>
+    :root{--primary:hsl(262,83%,58%);--secondary:hsl(160,100%,36%);--light:hsl(0,0%,100%);--dark:hsl(222,84%,5%);--transition:all 0.3s ease}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;line-height:1.6;background:var(--light)}.loading-skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:loading 1.5s infinite}@keyframes loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  </style>
+  
+  <!-- STRATEGIC CSS LOAD -->
+  <style>/* MASTERMIND STYLES - Single Strategic Stylesheet */
+
+/* === CSS VARIABLES MASTERMIND === */
+:root {
+  /* Colors - Strategic Palette */
+  --primary: hsl(262, 83%, 58%);
+  --secondary: hsl(160, 100%, 36%);
+  --accent: hsl(275, 100%, 84%);
+  --neutral: hsl(220, 13%, 18%);
+  --light: hsl(0, 0%, 100%);
+  --dark: hsl(222, 84%, 5%);
+  --gray: hsl(210, 40%, 96%);
+  
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+  
+  /* Spacing System */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  /* Sizes */
+  --radius: 0.5rem;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  
+  /* Layout */
+  --container: min(90vw, 1200px);
+  --section: min(100vh, 600px);
+}
+
+/* === RESET & BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--neutral);
+  background: var(--light);
+}
+
+/* === UTILITY CLASSES - Chess Pieces === */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-md); }
+.section { min-height: var(--section); display: flex; align-items: center; }
+.grid { display: grid; gap: var(--space-md); }
+.flex { display: flex; gap: var(--space-md); }
+.center { justify-content: center; align-items: center; }
+.between { justify-content: space-between; }
+.column { flex-direction: column; }
+.wrap { flex-wrap: wrap; }
+
+/* Spacing */
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.m-xs { margin: var(--space-xs); }
+.m-sm { margin: var(--space-sm); }
+.m-md { margin: var(--space-md); }
+.m-lg { margin: var(--space-lg); }
+
+/* Text */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-light { color: var(--light); }
+
+/* Backg</style><link rel="preload" href="master.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- META MASTERMIND -->
+  <meta name="description" content="Premium curated beauty marketplace - psychological shopping experience with strategic product curation">
+  <meta property="og:title" content="Shop&Glow - Beauty Mastermind">
+  <meta property="og:description" content="Strategic beauty shopping with fewer choices, maximum impact">
+  <meta property="og:image" content="/assets/og-image.jpg">
+</head>
+<body>
+  <!-- HEADER MASTERMIND -->
+  <header class="header">
+    <div class="header-banner">
+      <span>⚡ STRATEGIC LAUNCH: 30% OFF CURATED SELECTIONS ⚡</span>
+    </div>
+    <nav class="container nav">
+      <a href="/" class="logo" data-route="home">Shop&Glow</a>
+      <ul class="nav-links">
+        <li><a href="/curated" class="nav-link" data-route="curated">Curated</a></li>
+        <li><a href="/categories" class="nav-link" data-route="categories">Categories</a></li>
+        <li><a href="/partners" class="nav-link" data-route="partners">Partners</a></li>
+        <li><a href="/mastermind" class="nav-link" data-route="mastermind">Mastermind</a></li>
+      </ul>
+      <div class="nav-actions flex">
+        <button class="btn btn-ghost" data-action="search">🔍</button>
+        <button class="btn btn-ghost" data-action="cart">🛒</button>
+        <button class="btn btn-primary" data-action="account">Account</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main id="app-content">
+    <!-- Content will be dynamically loaded here -->
+    <div class="loading-skeleton" style="height: 60vh; margin: 2rem;"></div>
+  </main>
+
+  <!-- FOOTER MASTERMIND -->
+  <footer class="bg-dark text-light p-xl">
+    <div class="container">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div>
+          <h3 class="logo text-light">Shop&Glow</h3>
+          <p>Strategic beauty curation. Fewer choices, maximum impact.</p>
+        </div>
+        <div>
+          <h4>Mastermind Approach</h4>
+          <ul style="list-style: none; margin-top: 1rem;">
+            <li>• Curated Selection</li>
+            <li>• Quality Partners</li>
+            <li>• Strategic Pricing</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quick Access</h4>
+          <ul style="list-style: none; margin-top: 1rem;">
+            <li><a href="/about" class="text-light">About</a></li>
+            <li><a href="/contact" class="text-light">Contact</a></li>
+            <li><a href="/terms" class="text-light">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MASTERMIND TEMPLATES -->
+  <script type="text/template" id="template-home">
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Strategic Beauty<br><span style="color: var(--secondary);">Mastermind</span></h1>
+        <p class="hero-subtitle">Fewer products. Higher quality. Maximum impact.</p>
+        <div class="flex center wrap" style="gap: 1rem;">
+          <button class="btn btn-primary btn-lg" data-action="shop-curated">Shop Curated Selection</button>
+          <button class="btn btn-outline btn-lg" data-action="learn-approach">Learn Our Approach</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-gray">
+      <div class="container">
+        <h2 class="text-center text-primary" style="margin-bottom: 2rem;">Strategic Categories</h2>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+          <div class="card text-center">
+            <div class="card-body">
+              <h3>💄 Makeup Mastermind</h3>
+              <p>Precision-selected cosmetics for maximum impact</p>
+              <button class="btn btn-primary" data-category="makeup">Explore</button>
+            </div>
+          </div>
+          <div class="card text-center">
+            <div class="card-body">
+              <h3>🔧 Beauty Tools</h3>
+              <p>Professional-grade tools for strategic results</p>
+              <button class="btn btn-primary" data-category="tools">Explore</button>
+            </div>
+          </div>
+          <div class="card text-center">
+            <div class="card-body">
+              <h3>👶 Mother Care</h3>
+              <p>Carefully curated for mothers and babies</p>
+              <button class="btn btn-primary" data-category="mother">Explore</button>
+            </div>
+          </div>
+          <div class="card text-center">
+            <div class="card-body">
+              <h3>🐕 Pet Grooming</h3>
+              <p>Premium care for your beloved pets</p>
+              <button class="btn btn-primary" data-category="pet">Explore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <script type="text/template" id="template-curated">
+    <section class="section">
+      <div class="container">
+        <h1 class="text-center text-primary" style="margin-bottom: 3rem;">Curated Selection</h1>
+        <div class="product-grid" id="curated-products">
+          <!-- Products loaded dynamically -->
+        </div>
+      </div>
+    </section>
+  </script>
+
+  <script type="text/template" id="template-product-card">
+    <div class="product-card">
+      <img src="{{image}}" alt="{{name}}" class="product-image">
+      <div class="product-info">
+        <h3 class="product-name">{{name}}</h3>
+        <p class="text-gray" style="margin-bottom: 1rem;">{{description}}</p>
+        <div class="flex between center">
+          <span class="product-price">${{price}}</span>
+          <button class="btn btn-primary" data-product="{{id}}">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <!-- MASTERMIND CORE - Load First -->
+  <script src="core.js"></script>
+
+  <!-- APPLICATION INITIALIZATION -->
+  <script>
+    // MASTERMIND APPLICATION INITIALIZATION
+    document.addEventListener('DOMContentLoaded', function() {
+      // Performance measurement
+      performance.mark('app-start');
+      
+      // Initialize Router
+      Master.Router.add('/', showHome);
+      Master.Router.add('/curated', showCurated);
+      Master.Router.add('/categories', showCategories);
+      Master.Router.add('/partners', showPartners);
+      Master.Router.add('/mastermind', showMastermind);
+      Master.Router.add('*', show404);
+      Master.Router.init();
+      
+      // Initialize Event Listeners
+      initializeEventListeners();
+      
+      // Load critical data
+      loadCriticalData();
+      
+      performance.mark('app-ready');
+      performance.measure('app-init', 'app-start', 'app-ready');
+    });
+
+    // ROUTE HANDLERS
+    function showHome() {
+      const template = document.getElementById('template-home').innerHTML;
+      const content = Master.Components.create(template);
+      Master.Components.render('#app-content', content);
+      Master.Animations.fadeIn(content);
+    }
+
+    function showCurated() {
+      const template = document.getElementById('template-curated').innerHTML;
+      const content = Master.Components.create(template);
+      Master.Components.render('#app-content', content);
+      loadCuratedProducts();
+    }
+
+    function showCategories() {
+      Master.Components.render('#app-content', 
+        Master.Components.create('<div class="section container text-center"><h1>Categories - Coming Soon</h1></div>'));
+    }
+
+    function showPartners() {
+      Master.Components.render('#app-content', 
+        Master.Components.create('<div class="section container text-center"><h1>Partners - Strategic Network</h1></div>'));
+    }
+
+    function showMastermind() {
+      Master.Components.render('#app-content', 
+        Master.Components.create('<div class="section container text-center"><h1>Mastermind Philosophy</h1><p>Strategic thinking applied to beauty commerce.</p></div>'));
+    }
+
+    function show404() {
+      Master.Components.render('#app-content', 
+        Master.Components.create('<div class="section container text-center"><h1>404 - Page Not Found</h1></div>'));
+    }
+
+    // EVENT LISTENERS
+    function initializeEventListeners() {
+      // Navigation
+      document.addEventListener('click', function(e) {
+        if (e.target.matches('[data-route]')) {
+          e.preventDefault();
+          const route = e.target.getAttribute('href');
+          Master.Router.navigate(route);
+        }
+      });
+      
+      // Actions
+      document.addEventListener('click', function(e) {
+        const action = e.target.getAttribute('data-action');
+        if (action) handleAction(action, e.target);
+      });
+    }
+
+    // ACTION HANDLER
+    function handleAction(action, element) {
+      switch(action) {
+        case 'shop-curated':
+          Master.Router.navigate('/curated');
+          break;
+        case 'search':
+          // Implement search
+          Master.Animations.pulse(element);
+          break;
+        case 'cart':
+          // Show cart
+          Master.Animations.pulse(element);
+          break;
+        default:
+          console.log('Action:', action);
+      }
+    }
+
+    // DATA LOADING
+    async function loadCriticalData() {
+      // Load essential data for psychological speed
+      Master.State.set('categories', [
+        { id: 'makeup', name: 'Makeup', count: 12 },
+        { id: 'tools', name: 'Beauty Tools', count: 8 },
+        { id: 'mother', name: 'Mother Care', count: 15 },
+        { id: 'pet', name: 'Pet Grooming', count: 10 }
+      ]);
+    }
+
+    async function loadCuratedProducts() {
+      // Simulate API call with psychological loading
+      const products = [
+        { id: 1, name: 'Premium Foundation', price: '89.99', description: 'Full coverage, long-lasting', image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=200&fit=crop' },
+        { id: 2, name: 'Luxury Lipstick', price: '45.99', description: 'Rich pigment, moisturizing', image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=300&h=200&fit=crop' },
+        { id: 3, name: 'Eye Shadow Palette', price: '129.99', description: '20 curated shades', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=300&h=200&fit=crop' }
+      ];
+      
+      const container = document.getElementById('curated-products');
+      const template = document.getElementById('template-product-card').innerHTML;
+      
+      container.innerHTML = '';
+      
+      products.forEach((product, index) => {
+        setTimeout(() => {
+          const card = Master.Components.create(template, product);
+          container.appendChild(card);
+          Master.Animations.slideIn(card, 'up');
+        }, index * 100);
+      });
+    }
+  </script>
+</body>
+</html>

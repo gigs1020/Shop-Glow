@@ -1,0 +1,48 @@
+name: Mastermind Deploy
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build mastermind
+      run: |
+        mkdir -p dist
+        cp index.html dist/
+        cp master.css dist/
+        cp core.js dist/
+        cp config.json dist/
+        
+    - name: Optimize for GitHub Pages
+      run: |
+        # Inline critical CSS for psychological speed
+        node -e "
+          const fs = require('fs');
+          const html = fs.readFileSync('dist/index.html', 'utf8');
+          const css = fs.readFileSync('dist/master.css', 'utf8');
+          const optimized = html.replace('<!-- CRITICAL CSS -->', '<style>' + css + '</style>');
+          fs.writeFileSync('dist/index.html', optimized);
+        "
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        cname: shopglow-mastermind.com
