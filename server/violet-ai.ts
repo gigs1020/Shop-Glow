@@ -2,7 +2,7 @@ import OpenAI from "openai";
 import type { Product, Category, Partner, ChatMessage, FlashSale } from "@shared/schema";
 
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 
 const ADMIN_TRIGGER_CODES = ["violet-admin-2024", "admin-mode-violet", "shopglow-admin"];
 
@@ -48,6 +48,18 @@ export async function generateVioletResponse(
     })),
     { role: "user" as const, content: userMessage }
   ];
+
+  // If OpenAI is not configured, return a helpful fallback response
+  if (!openai) {
+    const fallbackMessage = context.isAdminMode 
+      ? "Admin mode is available, but AI features require an OpenAI API key. You can still access all Shop&Glow management features through the interface."
+      : "Hi! I'm Violet, your Shop&Glow assistant. AI chat features are currently offline, but you can browse our premium beauty products, mother care items, and pet grooming supplies. Use the navigation menu to explore our curated collections!";
+    
+    return {
+      message: fallbackMessage,
+      shouldEnterAdminMode: false
+    };
+  }
 
   try {
     const response = await openai.chat.completions.create({
@@ -178,6 +190,13 @@ export async function analyzeCustomerIntent(message: string): Promise<{
   confidence: number;
 }> {
   try {
+    if (!openai) {
+      return {
+        intent: 'general_inquiry' as const,
+        entities: [],
+        confidence: 0.5
+      };
+    }
     const response = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [
