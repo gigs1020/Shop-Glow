@@ -72,7 +72,7 @@ export function useChat(): ChatHookReturn {
               id: 'welcome',
               sessionId: session.sessionId,
               sender: 'violet',
-              message: '👋 Hi! I\'m Violet, your personal beauty assistant at Shop&Glow! I\'m here to help you discover the perfect products for your beauty routine.\n\nWhether you\'re looking for premium makeup, professional beauty tools, gentle mother care products, or luxurious pet grooming items, I\'ve got you covered!\n\nWhat brings you to Shop&Glow today?',
+              message: 'Assalamu Alaikum and welcome! I\'m Violet, your personal beauty assistant at Shop&Glow UAE. I\'m here to help you discover halal-certified, premium beauty products that align with your values and preferences.\n\nWhether you\'re looking for halal makeup, professional beauty tools, gentle mother care products, or premium pet grooming items - all verified for UAE compliance - I\'m here to assist!\n\nAll prices include 5% UAE VAT. How can I help you find the perfect products today?',
               messageType: 'text',
               metadata: null,
               createdAt: new Date()

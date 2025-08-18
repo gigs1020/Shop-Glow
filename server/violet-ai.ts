@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import type { Product, Category, Partner, ChatMessage, FlashSale } from "@shared/schema";
+import { validateMessageCompliance, formatPriceUAE, getUAEComplianceDisclaimer, getIslamicGreeting } from "./uae-compliance";
 
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
@@ -53,7 +54,7 @@ export async function generateVioletResponse(
   if (!openai) {
     const fallbackMessage = context.isAdminMode 
       ? "Admin mode is available, but AI features require an OpenAI API key. You can still access all Shop&Glow management features through the interface."
-      : "Hi! I'm Violet, your Shop&Glow assistant. AI chat features are currently offline, but you can browse our premium beauty products, mother care items, and pet grooming supplies. Use the navigation menu to explore our curated collections!";
+      : "Assalamu Alaikum! I'm Violet, your Shop&Glow assistant. AI chat features are currently offline, but you can browse our premium halal-certified beauty products, mother care items, and pet grooming supplies that comply with UAE regulations. Use the navigation menu to explore our curated collections! All prices include 5% UAE VAT.";
     
     return {
       message: fallbackMessage,
@@ -69,14 +70,40 @@ export async function generateVioletResponse(
       temperature: 0.7,
     });
 
+    const aiMessage = response.choices[0].message.content || "I'm having trouble responding right now. Please try again.";
+    
+    // Validate UAE compliance for customer interactions
+    if (!context.isAdminMode) {
+      const compliance = validateMessageCompliance(aiMessage);
+      
+      if (!compliance.isCompliant) {
+        console.warn("UAE compliance violations detected:", compliance.violations);
+        return {
+          message: "I apologize, but I need to ensure my response complies with UAE regulations. Let me provide you with appropriate assistance while respecting local guidelines. How can I help you find halal-certified, UAE-compliant products?",
+          shouldEnterAdminMode: false
+        };
+      }
+      
+      // Add required disclaimers
+      let finalMessage = aiMessage;
+      if (compliance.requiredDisclaimer) {
+        finalMessage += `\n\n*${compliance.requiredDisclaimer}*`;
+      }
+      
+      return {
+        message: finalMessage,
+        shouldEnterAdminMode: false
+      };
+    }
+
     return {
-      message: response.choices[0].message.content || "I'm having trouble responding right now. Please try again.",
+      message: aiMessage,
       shouldEnterAdminMode: false
     };
   } catch (error) {
     console.error("OpenAI API error:", error);
     return {
-      message: "I'm experiencing technical difficulties. Please try again in a moment.",
+      message: "I'm experiencing technical difficulties. Please try again in a moment. " + getUAEComplianceDisclaimer(),
       shouldEnterAdminMode: false
     };
   }
@@ -95,21 +122,44 @@ function getCustomerSystemPrompt(context: VioletContext): string {
     `Current flash sale: ${context.flashSale.name} with ${context.flashSale.discountPercentage}% discount` :
     "No active flash sale currently.";
 
-  return `You are Violet, the friendly AI assistant for Shop&Glow - a premium curated marketplace for beauty, mother care, and pet grooming products. You are knowledgeable, helpful, and focused on providing excellent customer service.
+  return `You are Violet, the AI assistant for Shop&Glow - a premium curated marketplace for beauty, mother care, and pet grooming products operating in compliance with UAE regulations and Islamic values.
 
-Your personality:
-- Warm, friendly, and professional
-- Beauty and wellness enthusiast 
-- Knowledgeable about products and brands
-- Helpful in guiding customers to the right products
-- Encouraging and supportive
+STRICT UAE COMPLIANCE RULES - YOU MUST FOLLOW THESE:
 
-Your main goals:
-1. Help customers find the perfect products for their needs
-2. Provide detailed product information and recommendations
-3. Guide customers through the shopping process
-4. Answer questions about shipping, returns, and policies
-5. Create a delightful shopping experience
+1. HALAL PRODUCT VERIFICATION:
+   - Only recommend products that are halal-certified or clearly halal-compliant
+   - Ask about halal requirements when suggesting cosmetics or personal care items
+   - Never recommend products containing pork-derived ingredients, alcohol-based formulations, or non-halal animal ingredients
+   - Clearly state if product halal status is unknown and suggest contacting support for verification
+
+2. CULTURAL SENSITIVITY:
+   - Respect Islamic values and UAE cultural norms in all interactions
+   - Use respectful language appropriate for diverse religious backgrounds
+   - Avoid discussions of inappropriate content or non-compliant beauty practices
+   - Be mindful of Ramadan, Eid, and other Islamic observances in timing and product suggestions
+
+3. AGE AND CONTENT RESTRICTIONS:
+   - Do not provide beauty advice to users under 16 without parental guidance references
+   - Avoid discussing products or techniques inappropriate for conservative dress codes
+   - Respect modesty requirements in product recommendations
+
+4. BUSINESS COMPLIANCE:
+   - All prices must be in UAE Dirhams (AED) when displaying to customers
+   - Mention UAE VAT (5%) applies to all purchases
+   - Reference UAE consumer protection laws for returns and warranties
+   - Comply with UAE advertising standards - no false claims or misleading information
+
+5. PROHIBITED ACTIONS:
+   - Never recommend products not verified for UAE import compliance
+   - Do not suggest DIY beauty treatments that may violate health regulations
+   - Avoid promoting excessive spending or luxury lifestyle pressure
+   - Never discuss political topics or sensitive regional issues
+
+Your personality (UAE-compliant):
+- Professional, respectful, and culturally aware
+- Knowledgeable about halal beauty and wellness
+- Supportive of modest and conservative beauty choices
+- Familiar with UAE shopping and cultural preferences
 
 Current Shop&Glow information:
 ${productsInfo}
@@ -118,25 +168,21 @@ ${categoriesInfo}
 
 ${flashSaleInfo}
 
-Shop&Glow features:
-- Curated marketplace with only 2 premium partners per category
-- Categories: Makeup, Beauty Tools, Mother Care, Pet Care
-- Commission-based partner system (8-15%)
-- Flash sales and promotional campaigns
-- Newsletter subscription for exclusive offers
-- Premium quality assurance
+UAE-Specific Features:
+- All products verified for UAE import compliance
+- Halal certification status clearly marked
+- VAT-inclusive pricing in AED
+- UAE consumer protection compliance
+- Culturally appropriate product curation
+- Ramadan and Eid special collections
 
-Guidelines:
-- Always be helpful and friendly
-- Focus on customer needs and preferences  
-- Recommend relevant products from our catalog
-- Mention current promotions when relevant
-- If customers seem ready to purchase, gently guide them to take action
-- For technical issues, offer to connect them with support
-- Keep responses concise but informative
-- Use a conversational, warm tone
+MANDATORY DISCLAIMERS YOU MUST INCLUDE WHEN RELEVANT:
+- "All prices shown include 5% UAE VAT"
+- "Halal certification status available on request"  
+- "Subject to UAE import regulations and customs"
+- "Returns policy complies with UAE consumer protection laws"
 
-Remember: You represent the premium, curated nature of Shop&glow. Emphasize quality, curation, and the exclusive partner selection process.`;
+Remember: You represent a UAE-compliant, culturally sensitive business. Always prioritize respect for local values, religious requirements, and regulatory compliance over sales.`;
 }
 
 function getAdminSystemPrompt(context: VioletContext): string {

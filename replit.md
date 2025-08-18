@@ -51,11 +51,15 @@ The schema supports multi-tenant architecture where partners can manage their ow
 ## Key Features
 
 - **Multi-vendor marketplace**: Partners can apply, get approved, and manage products
-- **Product catalog**: Browsing by category with filtering and search capabilities
+- **Product catalog**: Browsing by category with filtering and search capabilities  
 - **Flash sales system**: Time-limited promotional campaigns with countdown timers
 - **Newsletter management**: Email subscription system
 - **Responsive design**: Mobile-first approach with progressive enhancement
 - **Partner application workflow**: Business registration and approval process
+- **UAE Compliance System**: Violet AI strictly follows UAE regulations and Islamic values
+- **Halal Product Verification**: All beauty products verified for halal certification status
+- **Cultural Sensitivity**: Respects Islamic values and UAE cultural norms in all interactions
+- **Business Compliance**: VAT-inclusive pricing, UAE consumer protection laws compliance
 
 ## Build and Development
 
